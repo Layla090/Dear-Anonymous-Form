@@ -1,0 +1,45 @@
+/*background*/
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0E1022, #1C1132, #1A1A3A);
+}
+/*top part*/
+#title {
+    color: #F3E8FF;
+    text-align: center;
+    font-size: 700%;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10%;
+}
+
+#Join {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 40px;
+    font-size: 200%;
+    color: white;
+    background-color: #7F7FD5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/*color pallete
+Midnight Ink — #0E1022
+Deep Plum — #1C1132
+Velvet Navy — #1A1A3A
+
+Dusty Rose — #E8A0BF
+Soft Blush — #F5C2D7
+Mauve Whisper — #C084B6
+Muted Raspberry — #B94E7A
+
+these are the color pallete for
+text inside confession bubbles
+hearts
+hover glow effects
+unread notifications:
+Candle Cream — #FFF1E6
+Moonlight — #F3E8FF
+*/
