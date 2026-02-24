@@ -1,28 +1,145 @@
 /*background*/
 body {
     margin: 0;
-    background: linear-gradient(135deg, #0E1022, #1C1132, #1A1A3A);
+    background: linear-gradient(135deg, #210c3e, #1C1132, #2f0a59);
 }
-/*top part*/
+
+/*title*/
+#title{
+  text-shadow:
+    0 0 18px rgba(243,232,255,0.35),
+    0 0 55px rgba(232,160,191,0.18);
+  letter-spacing: 0.02em;
+}
+
+#title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-14px;
+  width:100%;
+  height:4px;
+  background: linear-gradient(90deg, rgba(243,232,255,0.1), #e93d87, rgba(243,232,255,0.1));
+  transform: scaleX(0);
+  transform-origin:left;
+  filter: blur(0.2px);
+  animation: underlineSlash 1.2s ease forwards 0.5s;
+}
+
+@keyframes underlineSlash{
+  from{ transform: scaleX(0); }
+  to{ transform: scaleX(1); }
+}
+
 #title {
     color: #F3E8FF;
     text-align: center;
     font-size: 700%;
-    font-family: 'Arial', sans-serif;
-    margin-top: 10%;
+    font-family: 'Playfair Display', serif;
+    margin-top: 25%;
+    position: relative;
 }
 
+/*button*/
 #Join {
+    font-family: 'Cormorant Garamond', serif;
     display: block;
-    margin: 0 auto;
-    padding: 20px 40px;
-    font-size: 200%;
-    color: white;
-    background-color: #7F7FD5;
+    margin: 30% auto;
+    padding: 3% 4%;
+    font-size: 250%;
+    color: #F3E8FF;
+    background-color: #e16299;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+#Join:hover {
+    transition-duration: .9s;
+    background-color: #fff;
+    color:#25043b;
+}
+
+/*description*/
+#description {
+    color: #F3E8FF;
+    text-align: center;
+    font-size: 250%;
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 6%;
+    max-width: 600%;
+    margin-left: auto;
+    margin-right: auto;
+    animation: 3s fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/*sparkles*/
+/* Sparkle layer */
+.sparkles{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* keep behind content */
+}
+
+/* Each sparkle */
+.sparkle{
+  position: absolute;
+  width: .5%;
+  height: .5%;
+  border-radius: 100%;
+  opacity: 0;
+  filter: blur(0.2px);
+  animation:
+    floatUp var(--dur, 2s) linear infinite,
+    twinkle var(--tw, 1.8s) ease-in-out infinite;
+  background: radial-gradient(circle, rgba(255,241,230,0.95) 0%, rgba(251, 107, 170, 0.55) 40%, rgba(21, 2, 75, 0.655) 70%);
+}
+
+/* Float + fade */
+@keyframes floatUp{
+  0%   { transform: translateY(20vh) scale(var(--s,1)); opacity: 0; }
+  10%  { opacity: var(--o, 0.55); }
+  60%  { opacity: var(--o, 0.55); }
+  100% { transform: translateY(-120vh) scale(var(--s,1)); opacity: 0; }
+}
+
+/* Soft brightness pulse */
+@keyframes twinkle{
+  0%,100% { opacity: 0.08; }
+  50%     { opacity: var(--o, 0.55); }
+}
+
+/* Position + variation (edit amounts if you want more/less) */
+.s1  { left: 8%;  top: 110%; --dur: 12s; --tw: 3.1s; --s: .9;  --o:.35; }
+.s2  { left: 18%; top: 120%; --dur: 9s;  --tw: 2.4s; --s: 1.1; --o:.45; }
+.s3  { left: 28%; top: 115%; --dur: 14s; --tw: 3.6s; --s: .8;  --o:.30; }
+.s4  { left: 38%; top: 125%; --dur: 10s; --tw: 2.8s; --s: 1.0; --o:.40; }
+.s5  { left: 48%; top: 118%; --dur: 13s; --tw: 3.2s; --s: 1.2; --o:.50; }
+.s6  { left: 58%; top: 130%; --dur: 11s; --tw: 2.6s; --s: .9;  --o:.35; }
+.s7  { left: 68%; top: 112%; --dur: 15s; --tw: 3.9s; --s: 1.1; --o:.42; }
+.s8  { left: 78%; top: 122%; --dur: 9.5s;--tw: 2.2s; --s: .85; --o:.33; }
+.s9  { left: 88%; top: 128%; --dur: 12.5s;--tw: 3.0s; --s: 1.25;--o:.55; }
+.s10 { left: 12%; top: 140%; --dur: 16s; --tw: 4.2s; --s: .7;  --o:.25; }
+.s11 { left: 54%; top: 145%; --dur: 18s; --tw: 4.6s; --s: .75; --o:.28; }
+.s12 { left: 92%; top: 150%; --dur: 20s; --tw: 5.0s; --s: .65; --o:.22; }
+
+/* Make sure your main content stays above sparkles */
+main, .content, .hero, .container {
+  position: relative;
+  z-index: 1;
 }
 
 /*color pallete
@@ -40,6 +157,5 @@ text inside confession bubbles
 hearts
 hover glow effects
 unread notifications:
-Candle Cream — #FFF1E6
 Moonlight — #F3E8FF
 */
